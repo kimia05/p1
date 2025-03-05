@@ -9,7 +9,7 @@ double avg(int arr[],int size)
     {
         sum=arr[i]+sum;
     }
-    return sum;
+    return sum/size;
 }
 
 int min(int arr[],int size)
