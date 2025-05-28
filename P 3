@@ -1,0 +1,23 @@
+
+#include <iostream>
+#include <thread>
+#include <vector>
+using namespace std;
+
+void func(int a) {
+    cout << a << endl;
+}
+
+int main() {
+    vector<thread> t;
+
+    for (int i = 0; i < 5; i++) {
+        t.emplace_back(func, i);  
+    }
+
+    for (int j = 0; j < 5; j++) {
+        t[j].join();  
+    }
+
+    return 0;
+}
