@@ -1,0 +1,55 @@
+#include <iostream>
+#include <string>
+#using namespace std
+class Person {
+private:
+  string name;
+ string lastname;
+    int age;
+
+public:
+    Person() : name(""), lastname(""), age(0) {}
+
+    void setInfo(const string& n, const string& ln, int a) {
+        name = n;
+        lastname = ln;
+        age = a;
+    }
+
+    int getAge() const {
+        return age;
+    }
+
+    void displayInfo() const {
+        cout << "Name: " << name << " " << lastname << ", Age: " << age << endl;
+    }
+};
+
+int main() {
+    const int numPeople = 10;
+    Person people[numPeople];
+
+    for (int i = 0; i < numPeople; ++i) {
+        string name, lastname;
+        int age;
+
+        cout << "Enter details for person " << i + 1 << ":" << endl;
+        cout << "Name: ";
+        cin >> name;
+        cout << "Lastname: ";
+        cin >> lastname;
+        cout << "Age: ";
+        cin >> age;
+
+        people[i].setInfo(name, lastname, age);
+    }
+
+    int totalAge = 0;
+    for (int i = 0; i < numPeople; ++i) {
+        totalAge += people[i].getAge();
+    }
+    double averageAge = static_cast<double>(totalAge) / numPeople;
+    std::cout << "The average age of the 10 people is: " << averageAge << std::endl;
+
+    return 0;
+}
